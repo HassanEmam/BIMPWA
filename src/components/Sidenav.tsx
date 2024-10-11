@@ -49,8 +49,8 @@ const Sidenav = () => {
       <div
         className={
           !nav
-            ? "text-green-500  w-[60%] ease-in-out duration-300 fixed top-5 left-[-100%] sm:hidden bg-slate-800"
-            : "text-green-500  fixed top-5 ease-in-out duration-500  left-0 sm:hidden w-[60%] bg-slate-800"
+            ? "text-green-500  w-[60%] ease-in-out duration-300 fixed top-10 left-[-100%] sm:hidden bg-slate-800"
+            : "text-green-500  fixed top-10 ease-in-out duration-500  left-0 sm:hidden w-[60%] bg-slate-600"
         }
       >
         <ul className="mt-10 flex-col justify-between sm:flex ">

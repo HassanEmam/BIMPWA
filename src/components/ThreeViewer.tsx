@@ -69,7 +69,7 @@ const ThreeViewer: React.FC = () => {
     animate();
   }, []);
 
-  return <div className="w-full h-full bg-slate-800" ref={canvasRef}></div>;
+  return <div className="flex-1 bg-slate-800" ref={canvasRef}></div>;
 };
 
 export default ThreeViewer;
