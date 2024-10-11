@@ -56,7 +56,8 @@ const ThreeViewer: React.FC = () => {
 
     // const cube = new THREE.Mesh(geometry, material);
     // scene.add(cube);
-    camera.position.z = 5;
+    camera.position.z = 50;
+    camera.position.y = 20;
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.5;
