@@ -69,14 +69,23 @@ const Sidenav = () => {
         }
       >
         <ul className="mt-10 flex-col justify-between sm:flex ">
-          <li className="flex my-4 border-b border-gray-300">
+          <li
+            className="flex my-4 border-b border-gray-300"
+            onClick={() => handleClick("/dashboard")}
+          >
             <AiFillHome className="mx-2" />
             Home
           </li>
-          <li className="flex my-4 border-b border-gray-300">
+          <li
+            className="flex my-4 border-b border-gray-300"
+            onClick={() => handleClick("/dashboard")}
+          >
             <AiFillInfoCircle className="mx-2" /> Projects
           </li>
-          <li className="flex my-4 border-b border-gray-300">
+          <li
+            className="flex my-4 border-b border-gray-300"
+            onClick={() => handleClick("/modelviewer")}
+          >
             <GiFamilyHouse className="mx-2" />
             Model Viewer
           </li>
