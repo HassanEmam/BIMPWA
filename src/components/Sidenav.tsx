@@ -1,5 +1,4 @@
 import {
-  AiFillCustomerService,
   AiFillHome,
   AiFillInfoCircle,
   AiFillPhone,
@@ -8,6 +7,7 @@ import {
 } from "react-icons/ai";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GiFamilyHouse } from "react-icons/gi";
 
 const Sidenav = () => {
   const [nav, setNav] = useState(false);
@@ -52,7 +52,7 @@ const Sidenav = () => {
             className="flex px-4 my-4 hover:bg-sky-700"
             onClick={() => handleClick("/modelviewer")}
           >
-            <AiFillCustomerService className="mx-2 text-2xl" />
+            <GiFamilyHouse className="mx-2 text-2xl" />
             <p className={`${!nav ? "hidden" : ""}`}>Model Viewer</p>
           </li>
           <li className="flex px-4 my-4 hover:bg-sky-700">
@@ -77,7 +77,7 @@ const Sidenav = () => {
             <AiFillInfoCircle className="mx-2" /> Projects
           </li>
           <li className="flex my-4 border-b border-gray-300">
-            <AiFillCustomerService className="mx-2" />
+            <GiFamilyHouse className="mx-2" />
             Model Viewer
           </li>
           <li className="flex my-4">
