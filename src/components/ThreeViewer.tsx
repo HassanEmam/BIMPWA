@@ -67,12 +67,12 @@ const ThreeViewer = () => {
     });
     renderer.setSize(containerSize.width, containerSize.height);
     canvasRef.current.appendChild(renderer.domElement);
-
+    const token = localStorage.getItem("authToken");
+    if (!token) return;
     const loader = new GLTFLoader();
     loader.requestHeader = { "Access-Control-Allow-Origin": "*" };
     loader.setRequestHeader({
-      Authorization:
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3Mjg3NDU0MDEsImlhdCI6MTcyODY1ODk5Niwic3ViIjoyfQ.jP5sQbXOhven-4-CrEiYt63uArdA8fXrF7onQAv8ZT0",
+      Authorization: token,
     });
     loader.load(
       "https://bim.constology.com/api/model/ca5527d9-209f-4ae0-ae84-57d8419e1db2",
