@@ -5,10 +5,7 @@ const backendURL = "https://bim.constology.com";
 export const login = createAsyncThunk(
   "auth/login",
 
-  async (
-    loginData: { email: string; password: string },
-    { rejectWithValue }
-  ) => {
+  async (loginData: { email: string; password: string }) => {
     const { data } = await axios.post(
       `${backendURL}/api/auth/login`,
       loginData
