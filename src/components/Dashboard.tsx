@@ -5,8 +5,8 @@ const Dashboard = () => (
     <div className="fixed sm:static sm:h-full sm:flex-col">
       <Sidenav />
     </div>
-    <div className=" flex-1 bg-slate-700">
-      Projects List
+    <div className=" flex flex-col flex-1 bg-slate-700">
+      <div className="flex text-xl justify-center min-h-8">Projects List</div>
       <ProjectsList />
     </div>
   </div>
