@@ -1,17 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { userLogin } from "./authActions";
+
+const authToken = localStorage.getItem("authToken")
+  ? localStorage.getItem("authToken")
+  : null;
 
 interface LoggedUser {
   username: string;
   id: string;
-  authToken: string;
+  authToken: string | null;
   isLoggedIn?: boolean;
 }
 
 const initialState: LoggedUser = {
   username: "",
   id: "",
-  authToken: "",
-  isLoggedIn: false,
+  authToken,
+  isLoggedIn: authToken ? true : false,
 };
 
 export const authSlice = createSlice({

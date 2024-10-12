@@ -21,6 +21,9 @@ export default function Login() {
     if (response.ok) {
       const data = await response.json();
       console.log(data);
+      localStorage.setItem("authToken", data.Authorization);
+      localStorage.setItem("id", data.Authorization);
+      localStorage.setItem("userID", username);
       dispatch(
         login({
           authToken: data.Authorization,

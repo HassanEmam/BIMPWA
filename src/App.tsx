@@ -1,7 +1,6 @@
 // import Login from "./components/Login";
 import React from "react";
 // import Sidenav from "./components/Sidenav";
-import ThreeViewer from "./components/ThreeViewer";
 import { RootState } from "./store";
 import {
   BrowserRouter as Router,
@@ -13,6 +12,7 @@ import {
 import { useSelector } from "react-redux";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import ModelLayout from "./components/ModelLayout";
 
 const ProtectedRoute: React.FC<{ component: React.FC }> = ({
   component: Component,
@@ -32,8 +32,8 @@ function App() {
           element={<ProtectedRoute component={Dashboard} />}
         />
         <Route
-          path="/threeviewer"
-          element={<ProtectedRoute component={ThreeViewer} />}
+          path="/modelviewer"
+          element={<ProtectedRoute component={ModelLayout} />}
         />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>

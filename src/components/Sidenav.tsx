@@ -7,9 +7,15 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidenav = () => {
   const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = (path: string) => {
+    navigate(path);
+  };
 
   const navHandler = () => {
     setNav(!nav);
@@ -28,21 +34,30 @@ const Sidenav = () => {
       </div>
       <div className="text-green-500 flex flex-col">
         <ul className="mt-4 hidden flex-col justify-between sm:flex">
-          <li className="flex px-4 my-4 hover:bg-sky-700">
+          <li
+            className="flex px-4 my-4 hover:bg-sky-700"
+            onClick={() => handleClick("/dashboard")}
+          >
             <AiFillHome className="mx-2 text-2xl" />
             <p className={`${!nav ? "hidden" : ""}`}>Home</p>
           </li>
-          <li className="flex px-4 my-4">
+          <li
+            className="flex px-4 my-4  hover:bg-sky-700"
+            onClick={() => handleClick("/dashboard")}
+          >
             <AiFillInfoCircle className="mx-2 text-2xl" />{" "}
-            <p className={`${!nav ? "hidden" : ""}`}>About</p>
+            <p className={`${!nav ? "hidden" : ""}`}>Projects</p>
           </li>
-          <li className="flex px-4 my-4">
+          <li
+            className="flex px-4 my-4 hover:bg-sky-700"
+            onClick={() => handleClick("/modelviewer")}
+          >
             <AiFillCustomerService className="mx-2 text-2xl" />
-            <p className={`${!nav ? "hidden" : ""}`}>Services</p>
+            <p className={`${!nav ? "hidden" : ""}`}>Model Viewer</p>
           </li>
-          <li className="flex px-4 my-4">
+          <li className="flex px-4 my-4 hover:bg-sky-700">
             <AiFillPhone className="mx-2 text-2xl" />
-            <p className={`${!nav ? "hidden" : ""}`}>Contact</p>
+            <p className={`${!nav ? "hidden" : ""}`}>Schedule</p>
           </li>
         </ul>
       </div>
@@ -59,15 +74,15 @@ const Sidenav = () => {
             Home
           </li>
           <li className="flex my-4 border-b border-gray-300">
-            <AiFillInfoCircle className="mx-2" /> About
+            <AiFillInfoCircle className="mx-2" /> Projects
           </li>
           <li className="flex my-4 border-b border-gray-300">
             <AiFillCustomerService className="mx-2" />
-            Services
+            Model Viewer
           </li>
           <li className="flex my-4">
             <AiFillPhone className="mx-2" />
-            Contact
+            Schedule
           </li>
         </ul>
       </div>

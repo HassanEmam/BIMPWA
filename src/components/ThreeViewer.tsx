@@ -22,7 +22,11 @@ const ThreeViewer: React.FC = () => {
       0.1,
       1000
     );
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      logarithmicDepthBuffer: true,
+    });
     renderer.setSize(containerSize.width, containerSize.height);
     canvasRef.current.appendChild(renderer.domElement);
 
