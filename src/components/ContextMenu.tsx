@@ -1,5 +1,5 @@
-import { useClickAway } from "@uidotdev/usehooks";
-import { useEffect, useState } from "react";
+import { useClickAway } from "react-use";
+import { useEffect, useRef, useState } from "react";
 
 export type ContextMenuItem = {
   name: string;
@@ -10,26 +10,23 @@ type ContextMenuProps = {
   x: number;
   y: number;
   show: boolean;
+  setShow: (show: boolean) => void;
 };
 
 const ContextMenu = (props: ContextMenuProps) => {
-  const { x, y, show } = props;
+  const { x, y, show, setShow } = props;
   const { items } = props;
-  const [visible, setVisible] = useState(false);
   console.log(show);
-  const ref = useClickAway(() => {
-    setVisible(false);
+  const ref = useRef(null);
+  useClickAway(ref, () => {
+    setShow(false);
   });
-
-  useEffect(() => {
-    setVisible(show);
-  }, [show]);
 
   return (
     <div
       ref={ref}
       className={` ${
-        visible ? "" : "hidden"
+        show ? "" : "hidden"
       } absolute bg-slate-900 text-white border border-gray-300 shadow-lg`}
       style={{ top: `${y}px`, left: `${x}px` }}
     >

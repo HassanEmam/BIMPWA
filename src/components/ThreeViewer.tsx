@@ -154,6 +154,7 @@ const ThreeViewer = () => {
         onContextMenu={handleContextMenu}
       ></div>
       <ContextMenu
+        setShow={setShowContextMenu}
         items={items}
         x={ctxpointer.x}
         y={ctxpointer.y}
