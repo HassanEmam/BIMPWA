@@ -1,10 +1,29 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import ContextMenu, { ContextMenuItem } from "./ContextMenu";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { TbTransform } from "react-icons/tb";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const ThreeViewer = () => {
+  const [ctxpointer, setCtxPointer] = useState({ x: 0, y: 0 });
+  const [showContextMenu, setShowContextMenu] = useState(false);
+
+  const items: ContextMenuItem[] = [
+    { name: "Hide Selected", icon: <MdVisibilityOff /> },
+    { name: "Show All", icon: <MdVisibility /> },
+    { name: "Transform", icon: <TbTransform /> },
+  ];
+
+  const handleContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setCtxPointer({ x: event.clientX, y: event.clientY });
+    console.log("context menu", event.clientX, event.clientY);
+    setShowContextMenu(true);
+  };
+
   const canvasRef = useRef<HTMLDivElement>(null);
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
@@ -127,11 +146,20 @@ const ThreeViewer = () => {
   }, []);
 
   return (
-    <div
-      onClick={handleMouseClick}
-      className="flex-1 bg-slate-800"
-      ref={canvasRef}
-    ></div>
+    <>
+      <div
+        onClick={handleMouseClick}
+        className="flex-1 bg-slate-800"
+        ref={canvasRef}
+        onContextMenu={handleContextMenu}
+      ></div>
+      <ContextMenu
+        items={items}
+        x={ctxpointer.x}
+        y={ctxpointer.y}
+        show={showContextMenu}
+      />
+    </>
   );
 };
 
