@@ -1,5 +1,5 @@
 import { useClickAway } from "react-use";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export type ContextMenuItem = {
   name: string;
