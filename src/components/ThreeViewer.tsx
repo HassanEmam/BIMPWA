@@ -49,7 +49,9 @@ const ThreeViewer: React.FC = () => {
         1000
       );
       camera.position.z = 5;
-
+      viewerRef.current.childNodes.forEach((child) =>
+        viewerRef.current!.removeChild(child)
+      );
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true,
@@ -58,9 +60,6 @@ const ThreeViewer: React.FC = () => {
       renderer.setSize(
         viewerRef.current.clientWidth,
         viewerRef.current.clientHeight
-      );
-      viewerRef.current.childNodes.forEach((child) =>
-        viewerRef.current!.removeChild(child)
       );
 
       viewerRef.current.appendChild(renderer.domElement);
