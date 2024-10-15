@@ -135,14 +135,16 @@ const ThreeViewer: React.FC = () => {
       loader.load(
         `https://bim.constology.com/api/model/${selectedModel}`,
         (gltf) => {
+          console.log(gltf.scene);
           scene.add(gltf.scene);
-          gltf.scene.traverse((child: THREE.Object3D) => {
+          gltf.scene.children.forEach((child: THREE.Object3D) => {
             if ((child as THREE.Mesh).isMesh) {
               const m = child as THREE.Mesh;
               pickableObjects.push(m);
               originalMaterials[m.name] = (m as THREE.Mesh).material;
             }
           });
+          // scene.add(group);
         },
         undefined,
         (error: Error) => console.error("Error loading model:", error)
