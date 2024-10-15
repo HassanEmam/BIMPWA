@@ -130,7 +130,7 @@ const ThreeViewer: React.FC = () => {
       const loader = new GLTFLoader();
       loader.requestHeader = { "Access-Control-Allow-Origin": "*" };
       loader.setRequestHeader({
-        Authorization: localStorage.getItem("authorization")!,
+        Authorization: localStorage.getItem("authToken")!,
       });
       loader.load(
         `https://bim.constology.com/api/model/${selectedModel}`,
