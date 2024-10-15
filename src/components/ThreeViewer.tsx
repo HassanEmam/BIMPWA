@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 // import { TransformControls } from "three/addons/controls/TransformControls.js";
 
 interface Model {
@@ -109,7 +109,8 @@ const ThreeViewer: React.FC = () => {
           // transformControls.attach(intersectedObject);
           // scene.add(transformControls);
           // scene.add(transformControls);
-          setSelectedObject(intersectedObject.name);
+
+          // setSelectedObject(intersectedObject.name);
           pickableObjects.forEach((o: THREE.Mesh, i) => {
             if (intersectedObject && intersectedObject.name === o.name) {
               pickableObjects[i].material = highlightedMaterial;
