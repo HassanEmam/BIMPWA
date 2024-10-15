@@ -32,7 +32,7 @@ function App() {
           element={<ProtectedRoute component={Dashboard} />}
         />
         <Route
-          path="/modelviewer"
+          path="/modelviewer/:projectId"
           element={<ProtectedRoute component={ModelLayout} />}
         />
         <Route path="*" element={<Navigate to="/login" />} />

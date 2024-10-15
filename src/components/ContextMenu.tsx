@@ -4,6 +4,7 @@ import { useRef } from "react";
 export type ContextMenuItem = {
   name: string;
   icon?: JSX.Element;
+  action?: () => void;
 };
 type ContextMenuProps = {
   items: ContextMenuItem[];
@@ -37,6 +38,10 @@ const ContextMenu = (props: ContextMenuProps) => {
             <div
               key={index}
               className="p-2 hover:bg-gray-100 cursor-pointer flex"
+              onClick={() => {
+                setShow(false);
+                if (item.action) item.action();
+              }}
             >
               <div className="p-1 text-green-400">{item.icon && item.icon}</div>
               <div className="p-1 text-green-400 align-middle">{item.name}</div>
